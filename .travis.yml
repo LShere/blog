@@ -12,7 +12,7 @@ addons:
   - 120.77.209.0
 before_install:
 - openssl aes-256-cbc -K $encrypted_0e2cdd9330a9_key -iv $encrypted_0e2cdd9330a9_iv
-  -in ./travis/id_rsa_blog.enc -out  ~/.ssh/id_rsa_blog -d
+  -in id_rsa_blog.enc -out  ~/.ssh/id_rsa_blog -d
 - chmod 600 ~/.ssh/id_rsa_blog
 - eval $(ssh-agent)
 - ssh-add ~/.ssh/id_rsa_blog
