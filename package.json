@@ -7,7 +7,7 @@
     "clean": "hexo clean",
     "deploy": "npm run clean:yuque && npm run sync && hexo clean && hexo g -d",
     "server": "hexo server",
-    "start": "hexo clean && hexo g && hexo s",
+    "start": "npm run clean:yuque && npm run sync && hexo clean && hexo g && hexo s",
     "sync": "yuque-hexo sync",
     "clean:yuque": "yuque-hexo clean"
   },
