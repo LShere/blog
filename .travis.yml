@@ -5,8 +5,8 @@ branchs:
   only:
   - master
 install:
-  - npm install
-  - npm install --save hexo-deployer-git #hexo提交依赖
+- npm install
+- npm install --save hexo-deployer-git
 addons:
   ssh_known_hosts:
   - 120.77.209.0
@@ -19,9 +19,8 @@ before_install:
 - cp .travis/ssh_config ~/.ssh/config
 - git config --global user.name "LShere"
 - git config --global user.email "384757457@qq.com"
-# 执行的命令
 after_success:
-- ssh travis@120.77.209.0 -o StrictHostKeyChecking=no 'cd ~/blog  && git pull && npm run deploy'
+- ssh travis@120.77.209.0 -o StrictHostKeyChecking=no 'cd ~/blog  && git pull && npm
+  run deploy'
 script:
 - npm run deploy
-

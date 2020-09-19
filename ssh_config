@@ -1,0 +1,8 @@
+
+Host test
+HostName 120.77.209.0
+#登陆的用户名
+User travis
+IdentitiesOnly yes
+#登陆使用的密钥
+IdentityFile ~/.travis/id_rsa_blog
