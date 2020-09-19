@@ -4,6 +4,9 @@ node_js:
 branchs:
   only:
   - master
+cache: 
+  directories: 
+   - node_modules
 install:
 - npm install
 - npm install --save hexo-deployer-git
