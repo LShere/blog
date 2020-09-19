@@ -4,6 +4,24 @@ node_js:
 branchs:
   only:
   - master
+install:
+  - npm install
+  - npm install --save hexo-deployer-git #hexo提交依赖
 addons:
   ssh_known_hosts:
   - 120.77.209.0
+before_install:
+- openssl aes-256-cbc -K $encrypted_0e2cdd9330a9_key -iv $encrypted_0e2cdd9330a9_iv
+  -in id_rsa_blog.enc -out .travis/id_rsa_blog -d
+- chmod 600 ~/.ssh/id_rsa_blog
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa_blog
+- cp .travis/ssh_config ~/.ssh/config
+- git config --global user.name "LShere"
+- git config --global user.email "384757457@qq.com"
+# 执行的命令
+after_success:
+- ssh travis@120.77.209.0 -o StrictHostKeyChecking=no 'cd ~/blog  && git pull && npm run deploy'
+script:
+- npm run deploy
+
